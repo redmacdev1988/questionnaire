@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 import { setMobile, setWechatUserId } from '../redux/result_reducer'
 import { checkIfUserExistInMongoDB } from '../helper/helper'
+import { APP_TITLE } from '../helper/consts';
 import '../styles/Main.css'
 
 const EMPTY = '';
@@ -50,7 +51,7 @@ export default function Main() {
 
   return (
     <div className='container'>
-        <h1 className='title text-light'>Tell me about you!</h1>
+        <h1 className='title text-light'>{APP_TITLE}</h1>
         <h2>{message}</h2>
         <form id="form">
             <input ref={mobileInputRef} className="userid" type="text" placeholder='Enter your Mobile #' onChange={handleMobileInputChange} value={mobileValue} />

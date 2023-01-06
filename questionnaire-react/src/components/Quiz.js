@@ -52,7 +52,6 @@ export default function Quiz() {
     <div className='container'>
         <h1 className='title text-light' data-testid="title">{APP_TITLE}</h1>
         <h2 className='text-light'>Question # {questionIndex+1} </h2>
-        {/* child updates checkedIndex so that when we click onNext, it will push it onto the state.result [] */}
         <Questions onChecked={onChecked} />
         <p className={checkedIndex !== undefined ? 'text-light' : 'warning'}>{checkedIndex !== undefined ? `You selected answer ${checkedIndex+1}` : 'Please select a choice'}</p>
         <div className='grid'>
