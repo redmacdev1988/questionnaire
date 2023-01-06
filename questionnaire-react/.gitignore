@@ -1,0 +1,113 @@
+# OSX
+#
+.DS_Store
+
+# Xcode
+#
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+ExportOutput/
+*.xcarchive
+*.log
+*.bin
+*.jar
+*.txt
+*.pom
+*.xml
+*.class
+*.lock
+#*.aar
+*.zip
+*.clz
+*.properties
+*.source
+*.so
+android/gradle/*
+*.lck
+*.dylib
+*.aidl
+*.MF
+*.bat
+*.icns
+*.html
+*.ok
+*.jnilib
+eWallet_FPS*
+*/gradle-5.4.1*
+
+# Android/IntelliJ
+#
+.idea
+.vscode
+.gradle
+*.iml
+local.properties
+gradle.properties
+android/app/src/main/gen
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# BUCK
+buck-out/
+\.buckd/
+# *.keystore
+# !debug.keystore
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/
+
+*/fastlane/report.xml
+*/fastlane/Preview.html
+*/fastlane/screenshots
+
+# Bundle artifact
+*.jsbundle
+
+# CocoaPods
+# /ios/Pods/
+.prettierrc.js
+# Jest
+#
+.jest/
+coverage/
+dist/
+android/captures
+.history
+
+#ui-ux-frameworks
+jc-core-v*
+jc-login-v*
+jc-gamification-v*
+ui-ux-framework-v*
+android/gradle/wrapper/gradle-5.4.1/caches/transforms-2/files-2.1/82ea5b6f98f572286e7e0b3ac8178871/aapt2-3.4.3-6197926-osx/aapt2
+android/gradle/wrapper/gradle-5.4.1/caches/transforms-2/files-2.1/82ea5b6f98f572286e7e0b3ac8178871/aapt2-3.4.3-6197926-osx/NOTICE
+android/gradle/wrapper/gradle-5.4.1/caches/transforms-2/files-2.1/cb07ee4847409ce1d8c339f765a1420d/assets/imageCache/asset_test
+android/gradle/wrapper/gradle-5.4.1/wrapper/dists/gradle-5.4.1-bin/cfuxg2fyzw6j39kcdbcxedqq0/gradle-5.4.1/LICENSE
+android/gradle/wrapper/gradle-5.4.1/wrapper/dists/gradle-5.4.1-bin/cfuxg2fyzw6j39kcdbcxedqq0/gradle-5.4.1/NOTICE
+android/gradle/wrapper/gradle-5.4.1/wrapper/dists/gradle-5.4.1-bin/cfuxg2fyzw6j39kcdbcxedqq0/gradle-5.4.1/bin/gradle
+.npmrc
+
+.eslintcache
