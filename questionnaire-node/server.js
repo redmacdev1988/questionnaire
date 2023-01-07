@@ -11,7 +11,7 @@ import fs from "fs";
 var app = Express();
 
 app.use(morgan('tiny'));
-app.use(cors());
+app.use(cors({origin: true, credentials: false}));
 app.use(Express.json());
 app.use(Express.urlencoded({ extended: false }));
 config(); // configure to read env file
