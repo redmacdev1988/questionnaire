@@ -56,6 +56,7 @@ export default function Main() {
 
   return (
     <div className='container'>
+        <small className='title text-light'>1.1 - cred true, no wildcard</small>
         <h1 className='title text-light'>{APP_TITLE}</h1>
         <h2 className='title text-light'>{message}</h2>
         <form id="form">
