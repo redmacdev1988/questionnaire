@@ -9,12 +9,11 @@ import Express from "express";
 import https from "https";
 import fs from "fs";
 
-
 var app = Express();
 
 app.use(morgan('tiny'));
 // app.use(cors());
-app.use(cors({origin: true, credentials: true}));
+app.use(cors());
 app.use(Express.json());
 
 config(); // configure to read env file
