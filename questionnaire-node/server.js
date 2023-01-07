@@ -8,6 +8,7 @@ import connect from './database/conn.js';
 import Express from "express";
 import https from "https";
 import fs from "fs";
+import { createProxyMiddleware } from 'http-proxy-middleware';
 
 var app = Express();
 
