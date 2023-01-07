@@ -1,50 +1,54 @@
-import express from 'express';
+
 import morgan from 'morgan';
 import cors from 'cors';
-import { config } from 'dotenv';
+import { config } from 'dotenv'; // needed for reading .env file
 import router from './router/route.js';
-
-
-/** import connection file */
 import connect from './database/conn.js';
 
-const app = express()
+import Express from "express";
+import https from "https";
+import fs from "fs";
 
 
-/** app middlewares */
+var app = Express();
+
 app.use(morgan('tiny'));
 app.use(cors());
-app.use(express.json());
-config();
+app.use(Express.json());
 
+config(); // configure to read env file
 
-/** appliation port */
 const port = process.env.PORT || 8080;
 
-
-/** routes */
-app.use('/api', router) /** apis */
-
-
+// routes
 app.get('/', (req, res) => {
     try {
-        res.json("Get Request")
+        res.json("Welcome to RickyABC")
     } catch (error) {
         res.json(error)
     }
 })
+app.use('/api', router) 
 
-
-/** start server only when we have valid connection */
-connect().then(() => {
+connect().then(() => {  
     try {
-        app.listen(port, () => {
-            console.log(`Server connected to http://localhost:${port}`)
-        })
+        https.createServer({
+            key: fs.readFileSync("certs/private.key"),
+            cert: fs.readFileSync("certs/certificate.crt"),
+            ca: fs.readFileSync("certs/ca_bundle.crt"),
+        }, app).listen(443, () => {
+            console.log("Listening at :443...");
+        });
     } catch (error) {
         console.log("Cannot connect to the server");
     }
 }).catch(error => {
     console.log("Invalid Database Connection");
 })
+
+
+
+
+
+
 
