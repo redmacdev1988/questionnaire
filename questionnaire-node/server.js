@@ -9,14 +9,14 @@ import Express from "express";
 import https from "https";
 import fs from "fs";
 
-
 var app = Express();
 
 app.use(morgan('tiny'));
-// app.use(cors());
 app.use(cors({origin: true, credentials: true}));
 app.use(Express.json());
 
+app.use('/api', createProxyMiddleware({ target: 'https://www.rickyabc.com', changeOrigin: true }));
+app.use(Express.urlencoded({ extended: false }));
 config(); // configure to read env file
 
 app.use(function(req, res, next) {
