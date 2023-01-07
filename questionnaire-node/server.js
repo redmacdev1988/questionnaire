@@ -13,16 +13,16 @@ import fs from "fs";
 var app = Express();
 
 app.use(morgan('tiny'));
-app.use(cors());
+// app.use(cors());
+app.use(cors({origin: true, credentials: true}));
 app.use(Express.json());
 
 config(); // configure to read env file
 
-const port = process.env.PORT || 8080;
-
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "rickyabc.com"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.header("Access-Control-Allow-Headers", "x-access-token, Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
 
