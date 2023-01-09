@@ -32,14 +32,12 @@ export default function Main() {
     const startQuiz = async () => {
         const mobile = mobileInputRef.current?.value;
         const wechatId = wechatInputRef.current?.value;
-        alert('check user exists');
         const res = await checkIfUserExistInMongoDB(wechatId, mobile);
         if (Array.isArray(res) && res.length > 0) {
             const { mobile: respMobile, wechatUsername } = res && res.length && res[0];
             if (respMobile || wechatUsername) {
                 setMessage(ID_USED);
             }
-            alert('exists!');
         }
        else {
             if(mobileInputRef.current?.value){
@@ -49,14 +47,13 @@ export default function Main() {
                 dispatch(setWechatUserId(wechatId))
             }
             setMessage(PROCEED_WITH_QUESTIOINNAIRE);
-            console.log('not exist, go to quiz!');
             navigate('/quiz');
         }
     }
 
   return (
     <div className='container'>
-        <small className='title text-light'>1.1 - cred true, no wildcard</small>
+        <small className='text-light'>RickyABC's Survey v1.2</small>
         <h1 className='title text-light'>{APP_TITLE}</h1>
         <h2 className='title text-light'>{message}</h2>
         <form id="form">

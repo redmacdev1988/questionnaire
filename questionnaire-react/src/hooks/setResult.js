@@ -3,7 +3,6 @@ import { postServerData } from '../helper/helper'
 import * as Action from '../redux/result_reducer'
 
 export const PushAnswer = (result) => async (dispatch) => {
-    console.log(`PushAnswer - ${result}`);
     try {
         await dispatch(Action.pushResultAction(result))
     } catch (error) {

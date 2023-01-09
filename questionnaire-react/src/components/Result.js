@@ -30,13 +30,11 @@ export default function Result() {
 
             <div className='result flex-center'>
                 <div className='flex'>
-                    <span>Wechat User ID</span>
-                    <span className='bold'>{wechatUserId || ""}</span>
+                    <p className='bold text-light'>{wechatUserId || ""}</p>
                 </div>
 
                 <div className='flex'>
-                    <span>Mobile #</span>
-                    <span className='bold'>{mobile || ""}</span>
+                    <p className='bold text-light'>{mobile || ""}</p>
                 </div>
                 <div className='flex'>
                     <span id='result'>{msgResult}</span>

@@ -15,9 +15,7 @@ export const resultReducer = createSlice({
             state.wechatUserId = action.payload
         },
         pushResultAction : (state, action) => {
-            console.log('pushResultAction: ', action.payload);
             state.result.push(action.payload);
-            console.log(current(state.result));
         },
 
         // update usually means we've moved to previous. 
@@ -30,9 +28,6 @@ export const resultReducer = createSlice({
             // then we update the element at index 3, and < 4.
             //  [1, 0, 3, (4), 0, 0]
             state.result.fill(checked, questionIndex, questionIndex + 1);
-
-            // check how to do log state.result
-            console.log('======> updateResultAction - state.result', current(state.result));
         },
         resetResultAction : () => {
             return {
