@@ -13,16 +13,7 @@ var app = Express();
 config(); // configure to read env file
 
 connect().then(() => {  
-    // try {
-    //     https.createServer({
-    //         key: fs.readFileSync("certs/private.key"),
-    //         cert: fs.readFileSync("certs/certificate.crt"),
-    //     }, app).listen(443, () => {
-    //         console.log("Listening at :443...");
-    //     });
-    // } catch (error) {
-    //     console.log("Cannot connect to the server");
-    // }
+
 }).catch(error => {
     console.log("Invalid Database Connection");
 });
@@ -45,7 +36,7 @@ app.get('/', (req, res) => {
 app.use('/api', router) 
 
 app.listen(process.env.PORT, () => {
-    console.log("Backend server is running!");
+    console.log("Server is running!");
 });
 
 

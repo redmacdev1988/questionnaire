@@ -5,7 +5,6 @@ export default async function connect(){
     await mongoose.connect(process.env.ATLAS_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useCreateIndex: true,
     })
     .then(() => console.log("Database Connected √"))
     .catch((err) => {
