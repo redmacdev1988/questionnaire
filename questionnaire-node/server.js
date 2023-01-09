@@ -10,19 +10,29 @@ import https from "https";
 import fs from "fs";
 var app = Express();
 
-app.use(morgan('tiny'));
-app.use(cors({origin: 'http://www.rickyabc.com', credentials: true}));
-app.use(Express.json());
-app.use(Express.urlencoded({ extended: false }));
 config(); // configure to read env file
 
-app.use(function(req, res, next) {
-    // res.header("Access-Control-Allow-Origin", "*"); // if credentials: false, we can use this
-    // else, we can't use wildcard * for credentials true
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.header("Access-Control-Allow-Headers", "x-access-token, Origin, X-Requested-With, Content-Type, Accept");
-    next();
+connect().then(() => {  
+    // try {
+    //     https.createServer({
+    //         key: fs.readFileSync("certs/private.key"),
+    //         cert: fs.readFileSync("certs/certificate.crt"),
+    //     }, app).listen(443, () => {
+    //         console.log("Listening at :443...");
+    //     });
+    // } catch (error) {
+    //     console.log("Cannot connect to the server");
+    // }
+}).catch(error => {
+    console.log("Invalid Database Connection");
 });
+
+app.use(morgan('tiny'));
+app.use(
+    cors()
+);
+app.use(Express.json());
+app.use(Express.urlencoded({ extended: false }));
 
 // routes
 app.get('/', (req, res) => {
@@ -34,23 +44,9 @@ app.get('/', (req, res) => {
 })
 app.use('/api', router) 
 
-connect().then(() => {  
-    try {
-        https.createServer({
-            key: fs.readFileSync("certs/private.key"),
-            cert: fs.readFileSync("certs/certificate.crt"),
-            ca: fs.readFileSync("certs/ca_bundle.crt"),
-        }, app).listen(443, () => {
-            console.log("Listening at :443...");
-        });
-    } catch (error) {
-        console.log("Cannot connect to the server");
-    }
-}).catch(error => {
-    console.log("Invalid Database Connection");
-})
-
-
+app.listen(process.env.PORT, () => {
+    console.log("Backend server is running!");
+});
 
 
 

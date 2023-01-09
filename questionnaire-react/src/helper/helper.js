@@ -12,11 +12,15 @@ export function CheckUserExist({ children }){
 }
 
 export async function checkIfUserExistInMongoDB(wechatUsername, mobile, callback) {
+    const axiosInstance = axios.create({
+        baseURL:process.env.REACT_APP_API_URL
+
+    })
     const url = `${process.env.REACT_APP_SERVER_HOSTNAME}/api/user`;
     console.log('checkIfUserExistInMongoDB - wechatUsername', wechatUsername);
     console.log('checkIfUserExistInMongoDB - mobile', mobile);
 
-    const data = await (await axios.get(url, 
+    const data = await (await axiosInstance.get(url, 
     {
         params: {
             wechatUsername,
@@ -27,18 +31,26 @@ export async function checkIfUserExistInMongoDB(wechatUsername, mobile, callback
     return callback ? callback(data) : data;
 }
 /** get server data */
-export async function getServerData(url, callback){
+export async function getServerData(url, callback) {
+    const axiosInstance = axios.create({
+        baseURL:process.env.REACT_APP_API_URL
+
+    })
     // second axios is to get the data resolved from json() (wait for data in body to arrive) 
-    const data = await (await axios.get(url))?.data;
+    const data = await (await axiosInstance.get(url))?.data;
     return callback ? callback(data) : data;
 }
 
 
 /** post server data */
 export async function postServerData(url, result, callback) {
+    const axiosInstance = axios.create({
+        baseURL:process.env.REACT_APP_API_URL
+
+    })
     // second axios is to get the data resolved from json() (wait for data in body to arrive) 
     console.log(`-- postServerData --`);
     console.log(result);
-    const data = await (await axios.post(url, result))?.data;
+    const data = await (await axiosInstance.post(url, result))?.data;
     return callback ? callback(data) : data;
 }
