@@ -25,7 +25,7 @@ export const usePublishResult = (resultData, callback) => {
         (async () => {
             try {
                 if(result !== [] && (!mobile && !wechatUsername)) throw new Error("Couldn't get Result");
-                await postServerData(`${process.env.REACT_APP_SERVER_HOSTNAME}/api/result`, resultData, (data) => {
+                await postServerData(`result`, resultData, (data) => {
                     const { msg } = data;
                     if (msg === 'success') {
                         callback(data);

@@ -16,7 +16,7 @@ export async function checkIfUserExistInMongoDB(wechatUsername, mobile, callback
         baseURL:process.env.REACT_APP_API_URL
 
     })
-    const url = `${process.env.REACT_APP_SERVER_HOSTNAME}/api/user`;
+    const url = `user`;
     console.log('checkIfUserExistInMongoDB - wechatUsername', wechatUsername);
     console.log('checkIfUserExistInMongoDB - mobile', mobile);
 
