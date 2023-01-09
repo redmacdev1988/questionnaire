@@ -22,12 +22,13 @@ export default [
         options : [
             'High School',
             'College overseas',
-            'Work for foreign company',
+            'Foreign company',
             'English major',
-            'Work in import/export',
+            'Import/Export',
             'Relocate overseas',
-            'For Travel',
-            'Social Status',
+            'Travel',
+            'Social status',
+            'Find new friends'
         ]
     },
     {
@@ -43,9 +44,9 @@ export default [
         id: 4,
         question : "What time slots are you free the most?",
         options : [
-            'Mon-Fri 12pm-2pm',
-            'Mon - Fri 7pm-9pm',
-            'Sundays 7pm-9pm'
+            'Mon-Fri 12-2pm',
+            'Mon-Fri 7-9pm',
+            'Weekends'
         ]
     },
     {
