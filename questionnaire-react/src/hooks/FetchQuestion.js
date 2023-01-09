@@ -15,7 +15,7 @@ export const useFetchQestion = () => {
         setGetData(prev => ({...prev, isLoading : true}));        
         (async () => {
             try {
-                console.log('∞ ∞ ∞ ∞ ∞ ∞ FETCHING DATA from: ', process.env.REACT_APP_SERVER_HOSTNAME);
+                console.log('∞ ∞ FETCHING DATA from: ', process.env.REACT_APP_SERVER_HOSTNAME);
                 const [{ questions, answers }] = await getServerData(`questions`, (data) => data)
 
                 if(questions.length > 0) {
