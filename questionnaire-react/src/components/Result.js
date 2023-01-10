@@ -20,7 +20,7 @@ export default function Result() {
     }, 
     (data) => {
         if (data?.msg === 'success') {
-            setMsgResult(`We have received your answers! Thank you!`);
+            setMsgResult(`We have received your answers! We hope you continue to enjoy Ricky's livestreams.`);
         }
     });
 
