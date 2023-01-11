@@ -6,8 +6,6 @@ import router from './router/route.js';
 import connect from './database/conn.js';
 
 import Express from "express";
-import https from "https";
-import fs from "fs";
 var app = Express();
 
 config(); // configure to read env file
