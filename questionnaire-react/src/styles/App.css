@@ -64,7 +64,7 @@ body, html{
 } */
 
 .container .grid{
-    margin-top: 3em;
+    margin-top: 2em;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -112,7 +112,7 @@ ul li label{
   display: block;
   position: relative;
   font-weight: 300;
-  font-size: 1.35em;
+  font-size: 1.1em;
   padding: 25px 25px 25px 80px;
   margin: 10px auto;
   height: 30px;
