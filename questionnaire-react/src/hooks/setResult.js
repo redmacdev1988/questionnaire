@@ -24,9 +24,11 @@ export const usePublishResult = (resultData, callback) => {
         (async () => {
             try {
                 if (!Array.isArray(result) || (!mobile && !wechatUsername)) throw new Error("Couldn't get Result");
+                console.log(`Posting Result to Database...`);
                 await postServerData(`result`, resultData, (data) => {
                     const { msg } = data;
                     if (msg === 'success' ) {
+                        console.log(`Data posted to Database...`);
                         callback(data);
                     }
                     return data;
