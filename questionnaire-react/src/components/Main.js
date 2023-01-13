@@ -53,7 +53,7 @@ export default function Main() {
 
   return (
     <div className='container'>
-        <small className='text-light'>RickyABC's Survey v1.21</small>
+        <small className='text-light'>RickyABC's Survey v1.22</small>
         <h1 className='title text-light'>{APP_TITLE}</h1>
         <h2 className='title text-light'>{message}</h2>
         <form id="form">
