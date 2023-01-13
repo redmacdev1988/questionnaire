@@ -40,7 +40,6 @@ export async function getServerData(url, callback) {
 export async function postServerData(url, result, callback) {
     const axiosInstance = axios.create({
         baseURL:process.env.REACT_APP_API_URL
-
     })
     const data = await (await axiosInstance.post(url, result))?.data;
     return callback ? callback(data) : data;

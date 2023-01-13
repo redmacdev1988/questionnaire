@@ -40,11 +40,6 @@ export default function Result() {
                     <span id='result'>{msgResult}</span>
                 </div>
             </div>
-
-            <div className="container">
-                {/* result table */}
-                {/* <ResultTable></ResultTable> */}
-            </div>
         </div>
     )
 }

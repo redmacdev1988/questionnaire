@@ -23,10 +23,10 @@ export const usePublishResult = (resultData, callback) => {
     useEffect(() => {
         (async () => {
             try {
-                if(result !== [] && (!mobile && !wechatUsername)) throw new Error("Couldn't get Result");
+                if (!Array.isArray(result) || (!mobile && !wechatUsername)) throw new Error("Couldn't get Result");
                 await postServerData(`result`, resultData, (data) => {
                     const { msg } = data;
-                    if (msg === 'success') {
+                    if (msg === 'success' ) {
                         callback(data);
                     }
                     return data;
@@ -35,5 +35,6 @@ export const usePublishResult = (resultData, callback) => {
                 console.log(error)
             }
         })();
-    }, []);
+    }, [mobile, wechatUsername]);
+    return null;
 }
